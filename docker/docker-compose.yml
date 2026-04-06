@@ -1,5 +1,7 @@
 version: "3.9"
 
+name: wow-lk-3.3.5
+
 services:
   db:
     image: mysql:8.0
@@ -9,7 +11,7 @@ services:
       MYSQL_ROOT_PASSWORD: trinity
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - db_data:/var/lib/mysql
+      - wow_lk_db_data:/var/lib/mysql
       - ./db-init:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
@@ -36,6 +38,7 @@ services:
           sleep 2
         done
         ./bin/authserver
+#    command: ['sleep', 'infinity']
     ports:
       - "3724:3724"
 
@@ -52,6 +55,7 @@ services:
     working_dir: /app
     stdin_open: true
     tty: true
+#    command: ['sleep', 'infinity']
     command:
       - sh
       - -c
@@ -65,3 +69,6 @@ services:
 
 volumes:
   db_data:
+  volumes:
+  wow_lk_db_data:
+    name: wow-lk-3.3.5-db

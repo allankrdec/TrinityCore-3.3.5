@@ -22,7 +22,7 @@ RUN mkdir build
 
 WORKDIR /build/TrinityCore-3.3.5/build
 
-RUN cmake .. -DNOJEM=1 -DTOOLS=1 -DSERVERS=1 -DCMAKE_INSTALL_PREFIX=/app && \
+RUN cmake .. -DNOJEM=1 -DTOOLS=1 -DSERVERS=1 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/app && \
     make -j$(nproc) && \
     make install
 

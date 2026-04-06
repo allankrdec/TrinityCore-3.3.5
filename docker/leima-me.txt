@@ -2,7 +2,7 @@ Primeira execução pode demorar, pois estará aplicando updates, gerando os ban
 
 Para acessar o prompt do worldserver
 
-docker attach trinity-world
+docker attach wow-world
 
 para sair
 ctrl+p+q
