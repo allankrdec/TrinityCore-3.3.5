@@ -75,7 +75,16 @@ C++ fixes are submitted as pull requests via Github. For more information on how
 properly submit a pull request, read the [how-to: maintain a remote fork](https://community.trinitycore.org/topic/9002-howto-maintain-a-remote-fork-for-pull-requests-tortoisegit/).
 For SQL only fixes, open a ticket; if a bug report exists for the bug, post on an existing ticket.
 
+## Build-docker
+cd ./docker
 
+docker login
+
+docker buildx build \
+  --platform linux/amd64 \
+  -t userdockerid/wow-lk-3.3.5:v1 \
+  --push .
+  
 ## Copyright
 
 License: GPL 2.0
