@@ -80,10 +80,7 @@ cd ./docker
 
 docker login
 
-docker buildx build \
-  --platform linux/amd64 \
-  -t userdockerid/wow-lk-3.3.5:v1 \
-  --push .
+docker buildx build --platform linux/amd64 -t userdockerid/wow-lk-3.3.5:v1 --push .
   
 ## Copyright
 
