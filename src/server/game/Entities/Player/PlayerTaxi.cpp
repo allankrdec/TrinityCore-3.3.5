@@ -35,6 +35,11 @@ void PlayerTaxi::InitTaxiNodesForLevel(uint32 race, uint32 chrClass, uint8 level
         }
     }
 
+    //libera o taxi para todos os usuários
+    for (std::size_t i = 0; i < m_taximask.size(); ++i)
+        m_taximask[i] |= sOldContinentsNodesMask[i];
+    
+
     // race specific initial known nodes: capital and taxi hub masks
     switch (race)
     {
