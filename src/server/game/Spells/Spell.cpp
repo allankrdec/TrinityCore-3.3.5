@@ -6115,8 +6115,12 @@ SpellCastResult Spell::CheckCast(bool strict, uint32* param1 /*= nullptr*/, uint
                 {
                     Battlefield* Bf = sBattlefieldMgr->GetBattlefieldToZoneId(m_originalCaster->GetZoneId());
                     if (AreaTableEntry const* area = sAreaTableStore.LookupEntry(m_originalCaster->GetAreaId()))
-                        if (area->Flags & AREA_FLAG_NO_FLY_ZONE  || (Bf && !Bf->CanFlyIn()))
+                        if ((area->Flags & AREA_FLAG_NO_FLY_ZONE || (Bf && !Bf->CanFlyIn()))
+                            && m_originalCaster->GetMapId() != 0 //libera voo em azeroth
+                            && m_originalCaster->GetMapId() != 1) //libera voo em azeroth
                             return SPELL_FAILED_NOT_HERE;
+                        //if (area->Flags & AREA_FLAG_NO_FLY_ZONE  || (Bf && !Bf->CanFlyIn()))
+                        //    return SPELL_FAILED_NOT_HERE;
                 }
                 break;
             }
