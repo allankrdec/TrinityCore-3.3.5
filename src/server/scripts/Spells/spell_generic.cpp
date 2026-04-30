@@ -2375,7 +2375,7 @@ private:
             SpellInfo const* spellInfo = sSpellMgr->GetSpellInfo(_mount150);
             uint32 zoneid, areaid;
             target->GetZoneAndAreaId(zoneid, areaid);
-            bool const canFly = spellInfo && (spellInfo->CheckLocation(target->GetMapId(), zoneid, areaid, target) == SPELL_CAST_OK);
+            bool canFly = spellInfo && (spellInfo->CheckLocation(target->GetMapId(), zoneid, areaid, target) == SPELL_CAST_OK);
 
             // libera voo em Azeroth
             if (target->GetMapId() == 0 || target->GetMapId() == 1)
