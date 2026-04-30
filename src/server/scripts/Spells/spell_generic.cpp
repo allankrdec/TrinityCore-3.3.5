@@ -2377,6 +2377,10 @@ private:
             target->GetZoneAndAreaId(zoneid, areaid);
             bool const canFly = spellInfo && (spellInfo->CheckLocation(target->GetMapId(), zoneid, areaid, target) == SPELL_CAST_OK);
 
+            // libera voo em Azeroth
+            if (target->GetMapId() == 0 || target->GetMapId() == 1)
+                canFly = true;
+            
             uint32 mount = 0;
             switch (target->GetBaseSkillValue(SKILL_RIDING))
             {
