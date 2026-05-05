@@ -6062,7 +6062,7 @@ SpellCastResult Spell::CheckCast(bool strict, uint32 *param1 /*= nullptr*/, uint
             if (it)
                 allowMount = it->AllowMount;
 
-            // BLOQUEIO REMOVIDO ?
+            // Liberado: não bloqueia mount por mapa/instância
             /*
             if (unitCaster->GetTypeId() == TYPEID_PLAYER && !allowMount && !m_spellInfo->RequiredAreasID)
                 return SPELL_FAILED_NO_MOUNTS_ALLOWED;
@@ -6072,13 +6072,6 @@ SpellCastResult Spell::CheckCast(bool strict, uint32 *param1 /*= nullptr*/, uint
             {
                 SendMountResult(MountResult::Shapeshifted);
                 return SPELL_FAILED_DONT_REPORT;
-            }
-
-            // ?? ADICIONA ISSO
-            if (unitCaster->GetTypeId() == TYPEID_PLAYER)
-            {
-                unitCaster->SetCanFly(true);
-                unitCaster->SetDisableGravity(true);
             }
 
             break;
